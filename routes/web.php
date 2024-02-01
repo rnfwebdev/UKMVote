@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,24 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//ADMIN Group Middleware
+Route::middleware(['auth','roles:admin'])->group(function(){
+
+    //redirect to admin dashboard
+    Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    //admin logout
+    // Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    //page route
+    // Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    // Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    //data route
+    // Route::POST('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    // Route::POST('/admin/update/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+    
+    
+    
+    }); //End of ADMIN group middleware
+
+    //adminLogin
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
