@@ -23,7 +23,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ### Collaborators
 
-- **[Abdul Rahim Sargandang](https://github.com/rahimsargandang)**
+- **[Abdul Rahim Sargandang](https://github.com/rahimsargandang)** Handsome
 - **[Muhamad Fahmi Mohd Noh](https://github.com/fahmiiinoh)**
 
  
