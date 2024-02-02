@@ -40,10 +40,10 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     //page route
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
-    // Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     //data route
     Route::POST('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
-    // Route::POST('/admin/update/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+    Route::POST('/admin/update/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
     
     
     
