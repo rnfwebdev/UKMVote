@@ -1,90 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png')}}" type="image/png"/>
+	<!--plugins-->
+	<link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
+	<link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
+	<link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
+	<link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet"/>
+	<!-- loader-->
+	<link href="{{ asset('backend/assets/css/pace.min.css')}}" rel="stylesheet"/>
+	<script src="{{ asset('backend/assets/js/pace.min.js')}}"></script>
+	<!-- Bootstrap CSS -->
+	<link href="{{ asset('backend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{ asset('backend/assets/css/bootstrap-extended.css')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="{{ asset('backend/assets/css/app.css')}}" rel="stylesheet">
+	<link href="{{ asset('backend/assets/css/icons.css')}}" rel="stylesheet">
+	<!-- Theme Style CSS -->
+	<link rel="stylesheet" href="{{ asset('backend/assets/css/dark-theme.css')}}"/>
+	<link rel="stylesheet" href="{{ asset('backend/assets/css/semi-dark.css')}}"/>
+	<link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css')}}"/>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" > 
 
-    <title>Admin Dashboard</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('backend/assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('backend/assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+	<title>Admin Dashboard</title>
 </head>
 
-<body id="page-top">
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		@include('admin.body.sidebar')
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+		<!--header -->
+		@include('admin.body.header')
 
-        <!-- sidebar wrapper -->
-         @include ('admin.body.sidebar')
+		<!--page wrapper -->
+		<div class="page-wrapper">
+			@yield('admin')
+		</div>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+		<!--overlay-->
+		 <div class="overlay toggle-icon"></div>
 
-            <!-- header -->
-            @include ('admin.body.header')
-            @yield('admin')
-        <!-- End of Content Wrapper -->
+		<!--Back To Top Button-->
+		  <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 
-        <!-- footer -->
-         @include ('admin.body.footer')
-    </div>
-    <!-- End of Page Wrapper -->
+		<!--footer-->
+		@include('admin.body.footer')
+		
+	</div>
+	<!--end wrapper-->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+	<!-- Bootstrap JS -->
+	<script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
+	<!--plugins-->
+	<script src="{{ asset('backend/assets/js/jquery.min.js')}}"></script>
+	<script src="{{ asset('backend/assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
+	<script src="{{ asset('backend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
+	<script src="{{ asset('backend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
+	<script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+    <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+	<script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js')}}"></script>
+	<script src="{{ asset('backend/assets/js/index.js')}}"></script>
+	<!--app JS-->
+	<script src="{{ asset('backend/assets/js/app.js')}}"></script>
+	<script>
+		new PerfectScrollbar(".app-container")
+	</script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('backend/assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- <script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('backend/assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('backend/assets/js/sb-admin-2.min.js')}}"></script>
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
 
-    <!-- Page level plugins -->
-    <script src="{{ asset('backend/assets/vendor/chart.js/Chart.min.js')}}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('backend/assets/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{ asset('backend/assets/js/demo/chart-pie-demo.js')}}"></script>
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break; 
+ }
+ @endif 
+</script> -->
 
 </body>
 
