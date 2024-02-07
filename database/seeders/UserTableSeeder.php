@@ -25,13 +25,23 @@ class UserTableSeeder extends Seeder
                         'status' => '1',
                     ],
                     
-                    //instructor
+                    //jpmpp
                     [
                         'name' => 'Dr Oppie',
                         'username' => 'Oppie',
                         'email' => 'droppie@gmail.com',
                         'password' => Hash::make('111'),
                         'role' => 'jpmpp',
+                        'status' => '1',
+                    ],
+                    
+                    //candidate
+                    [
+                        'name' => 'Mike',
+                        'username' => 'mike',
+                        'email' => 'mike@gmail.com',
+                        'password' => Hash::make('111'),
+                        'role' => 'candidate',
                         'status' => '1',
                     ],
         
@@ -41,7 +51,7 @@ class UserTableSeeder extends Seeder
                         'username' => 'harvey',
                         'email' => 'harvey@gmail.com',
                         'password' => Hash::make('111'),
-                        'role' => 'user',
+                        'role' => 'voter',
                         'status' => '1',
                     ],
         
