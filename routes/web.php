@@ -49,5 +49,54 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     
     }); //End of ADMIN group middleware
 
-//adminLogin
+
+//JPMPP Group Middleware
+Route::middleware(['auth','roles:jpmpp'])->group(function(){
+    //refer to admin route. sama je
+    //redirect to jpmpp dashboard
+
+    //jpmpp logout
+
+    //page route
+
+    //data route
+
+    }); //End of JPMPP group middleware
+
+
+//Candidate Group Middleware
+Route::middleware(['auth','roles:candidate'])->group(function(){
+    //refer to admin route. sama je
+    //redirect to candidate dashboard
+
+    //candidate logout
+
+    //page route
+
+    //data route
+
+    }); //End of Candidate group middleware
+
+
+//Voter Group Middleware
+Route::middleware(['auth','roles:voter'])->group(function(){
+    //refer to admin route. sama je
+    //redirect to admin dashboard
+
+    //voter logout
+
+    //page route
+
+    //data route
+
+    }); //End of Voter group middleware
+
+
+//adminLoginpage
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+//jpmppLoginpage
+
+//candidateLoginpage
+
+//voterLoginpage
