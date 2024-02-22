@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\VoterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Voter page
+Route::get('/', [VoterController::class, 'Index'])->name('index');
+//Voter Group Middleware
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -44,9 +44,6 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     //data route
     Route::POST('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::POST('/admin/update/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
-    
-    
-    
     }); //End of ADMIN group middleware
 
 
@@ -77,19 +74,6 @@ Route::middleware(['auth','roles:candidate'])->group(function(){
 
     }); //End of Candidate group middleware
 
-
-//Voter Group Middleware
-Route::middleware(['auth','roles:voter'])->group(function(){
-    //refer to admin route. sama je
-    //redirect to admin dashboard
-
-    //voter logout
-
-    //page route
-
-    //data route
-
-    }); //End of Voter group middleware
 
 
 //adminLoginpage
