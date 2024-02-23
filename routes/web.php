@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [VoterController::class, 'Index'])->name('index');
 //Voter Group Middleware
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('voter.dashboard.voter_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
