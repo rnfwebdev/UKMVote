@@ -12,17 +12,17 @@
                         <img class="rounded-full" src="{{  (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="Student thumbnail image">
                     </div>
                     <div class="media-body">
-                        <h2 class="section__title fs-30">Howdy, nigga</h2>
+                        <h2 class="section__title fs-30">Howdy, {{$profileData ->name}}</h2>
                         <div class="rating-wrap d-flex align-items-center pt-2">
                             <div class="review-stars">
-                                <span class="rating-number">4.4</span>
+                                <span class="rating-number">Status:</span>
+                                <!-- <span class="la la-star"></span>
                                 <span class="la la-star"></span>
                                 <span class="la la-star"></span>
                                 <span class="la la-star"></span>
-                                <span class="la la-star"></span>
-                                <span class="la la-star-o"></span>
+                                <span class="la la-star-o"></span> -->
                             </div>
-                            <span class="rating-total pl-1">(20,230)</span>
+                            <span class="rating-total pl-1">Not vote yet</span>
                         </div><!-- end rating-wrap -->
                     </div><!-- end media-body -->
                 </div><!-- end media -->
