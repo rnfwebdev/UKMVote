@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="">
+    <meta name="author" content="TechyDevs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -13,16 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" sizes="16x16" href="{{asset('frontend/assets/images/favicon.png')}}">
+    <link rel="icon" sizes="16x16" href="{{asset('frontend/images/favicon.png')}}">
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrapdash.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/line-awesome.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/fancybox.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/dashboardstyle.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/line-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/fancybox.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     <!-- end inject -->
 </head>
@@ -85,25 +85,40 @@
 </div>
 <!-- end scroll top -->
 
-
+<!-- Modal -->
+<div class="modal fade modal-container" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <span class="la la-exclamation-circle fs-60 text-warning"></span>
+                <h4 class="modal-title fs-19 font-weight-semi-bold pt-2 pb-1" id="deleteModalTitle">Your account will be deleted permanently!</h4>
+                <p>Are you sure you want to delete your account?</p>
+                <div class="btn-box pt-4">
+                    <button type="button" class="btn font-weight-medium mr-3" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn theme-btn theme-btn-sm lh-30">Ok, Delete</button>
+                </div>
+            </div><!-- end modal-body -->
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal -->
 
 <!-- template js files -->
-<script src="{{asset('frontend/assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/bootstrapdash.bundle.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/bootstrap-select.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/isotope.js')}}"></script>
-<script src="{{asset('frontend/assets/js/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/fancybox.js')}}"></script>
-<script src="{{asset('frontend/assets/js/chart.js')}}"></script>
-<script src="{{asset('frontend/assets/js/doughnut-chart.js')}}"></script>
-<script src="{{asset('frontend/assets/js/bar-chart.js')}}"></script>
-<script src="{{asset('frontend/assets/js/line-chart.js')}}"></script>
-<script src="{{asset('frontend/assets/js/datedropper.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/emojionearea.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/animated-skills.js')}}"></script>
-<script src="{{asset('frontend/assets/js/jquery.MultiFile.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/maindash.js')}}"></script>
+<script src="{{asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('frontend/js/bootstrap-select.min.js')}}"></script>
+<script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('frontend/js/isotope.js')}}"></script>
+<script src="{{asset('frontend/js/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('frontend/js/fancybox.js')}}"></script>
+<script src="{{asset('frontend/js/chart.js')}}"></script>
+<script src="{{asset('frontend/js/doughnut-chart.js')}}"></script>
+<script src="{{asset('frontend/js/bar-chart.js')}}"></script>
+<script src="{{asset('frontend/js/line-chart.js')}}"></script>
+<script src="{{asset('frontend/js/datedropper.min.js')}}"></script>
+<script src="{{asset('frontend/js/emojionearea.min.js')}}"></script>
+<script src="{{asset('frontend/js/animated-skills.js')}}"></script>
+<script src="{{asset('frontend/js/jquery.MultiFile.min.js')}}"></script>
+<script src="{{asset('frontend/js/main.js')}}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <!-- <script>
  @if(Session::has('message'))

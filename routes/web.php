@@ -20,13 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [VoterController::class, 'Index'])->name('index');
 //Voter Group Middleware
 Route::get('/dashboard', function () {
-    return view('voter.dashboard.voter_dashboard');
+    return view('voter.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //voter logout
+    Route::get('/logout', [VoterController::class, 'VoterLogout'])->name('voter.logout');
 });
 
 require __DIR__.'/auth.php';
