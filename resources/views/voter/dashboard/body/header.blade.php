@@ -256,11 +256,6 @@
                                                                     <i class="la la-gear mr-1"></i> Settings
                                                                 </a>
                                                             </li>
-                                                            <li>
-                                                                <a href="dashboard-purchase-history.html">
-                                                                    <i class="la la-history mr-1"></i> Purchase history
-                                                                </a>
-                                                            </li>
                                                             <li><div class="section-block"></div></li>
                                                             <li>
                                                                 <a href="#">
@@ -284,15 +279,6 @@
                                                                 </a>
                                                             </li>
                                                             <li><div class="section-block"></div></li>
-                                                            <li>
-                                                                <a href="#" class="position-relative">
-                                                                    <span class="fs-17 font-weight-semi-bold d-block">Aduca for Business</span>
-                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring learning to your company</span>
-                                                                    <span class="position-absolute top-0 right-0 mt-3 mr-3 fs-18 text-gray">
-                                                                    <i class="la la-external-link"></i>
-                                                                </span>
-                                                                </a>
-                                                            </li>
                                                         </ul>
                                                     </li>
                                                 </ul>
