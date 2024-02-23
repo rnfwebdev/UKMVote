@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('voter.dashboard.login');
     }
 
     /**
@@ -34,9 +34,12 @@ class AuthenticatedSessionController extends Controller
             $url = '/admin/dashboard';
         }elseif($request->user()->role === 'JPMPP'){
             $url = '/jpmpp/dashboard';
-        }elseif ($request->user()->role === 'user'){
+        }elseif ($request->user()->role === 'candidate'){
+            $url = '/candidate/dashboard';
+        }elseif ($request->user()->role === 'voter'){
             $url = '/dashboard';
         }
+
 
 
         return redirect()->intended($url);
