@@ -279,7 +279,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="{{route('voter.logout')}}">
                                                                     <i class="la la-power-off mr-1"></i> Logout
                                                                 </a>
                                                             </li>

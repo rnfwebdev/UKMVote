@@ -1,6 +1,6 @@
 <div class="row align-items-center dashboard-copyright-content pb-4">
                 <div class="col-lg-6">
-                    <p class="copy-desc">&copy; 2024 LMSP. All Rights Reserved. by <a href="https://fahminoh.netlify.app/">FN</a></p>
+                    <p class="copy-desc">&copy; 2024 UKMVote. All Rights Reserved. by <a href="#">R&F</a></p>
                 </div><!-- end col-lg-6 -->
                 <div class="col-lg-6">
                     <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 justify-content-end">
