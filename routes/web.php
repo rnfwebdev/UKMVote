@@ -26,7 +26,13 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     //voter logout
     Route::get('/logout', [VoterController::class, 'VoterLogout'])->name('voter.logout');
-});
+    //page route
+    Route::get('/profile', [VoterController::class, 'VoterProfile'])->name('voter.profile');
+    Route::get('/edit/profile', [VoterController::class, 'VoterEditProfile'])->name('voter.edit.profile');
+    //data route
+    Route::POST('/store/profile', [VoterController::class, 'VoterStoreProfile'])->name('voter.store.profile');
+
+}); //End of VOTER group middleware
 
 require __DIR__.'/auth.php';
 
