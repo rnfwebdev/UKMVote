@@ -8,7 +8,13 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="/login">Login</a>
+
+						@auth
+						<a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+						@else
+						<a class="nav-link" href="{{route('login')}}">Login</a>
+						@endauth
+
 					</li>
 				</ul>
 			</div>
