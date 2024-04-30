@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\VoterController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::POST('/otp/request', [AuthenticatedSessionController::class, 'OTPRequest'])->name('otp.request');
 
 //Voter page
 Route::get('/', [VoterController::class, 'Index'])->name('index');
@@ -83,6 +86,10 @@ Route::middleware(['auth','roles:candidate'])->group(function(){
 
 //adminLoginpage
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+Route::post('/admin/loginotp', [AuthenticatedSessionController::class, 'loginWithOtp'])->name('login.otp');
+
 
 //jpmppLoginpage
 

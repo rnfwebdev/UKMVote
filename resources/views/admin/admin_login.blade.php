@@ -5,6 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!--favicon-->
 	<link rel="icon" href="{{ asset('backend/assets/img/favicon-32x32.png/')}}" type="image/png" />
 	<!--plugins-->
@@ -42,12 +43,14 @@
 									</div>
 									
 									<div class="form-body">
-										<form class="row g-3" method="POST" action="{{ route('login') }}">
+										<form class="row g-3" method="POST" action="{{ route('login.otp') }}">
 											@csrf
-
+											@if(session('error'))
+												<div class="alert alert-danger">{{ session('error') }}</div>
+											@endif
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Email</label>
-												<input type="email" class="form-control @error('email') is invalid @enderror" id="email" name="email" placeholder="einstein@example.com">
+												<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="einstein@example.com">
 												@error('email') 
 												<span class="text-danger">{{$message}}</span>
 												@enderror
@@ -55,11 +58,22 @@
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" class="form-control border-end-0 @error('password') is invalid @enderror" id="password" name="password"  placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+													<input type="password" class="form-control border-end-0 @error('password') is-invalid @enderror" id="password" name="password"  placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
 													@error('password') 
 													<span class="text-danger">{{$message}}</span>
 													@enderror
 												</div>
+											</div>
+											<div class="col-8">
+												<label for="inputOTP" class="form-label">OTP 6 Digits</label>
+												<input type="text" class="form-control border-end-0 @error('otpnumber') is-invalid @enderror" id="otpnumber" name="otpnumber" maxlength="6" pattern="[0-9]{6}" disabled>
+												@error('otpnumber') 
+												<span class="text-danger">{{$message}}</span>
+												@enderror
+											</div>
+											<div class="col-4">
+											<label for="inputOTP" class="form-label"></label>
+											<button type="button" class="btn btn-info" id="requestOTP">Request</button>
 											</div>
 											<div class="col-md-6">
 												<div class="form-check form-switch">
@@ -74,7 +88,6 @@
 													<button type="submit" class="btn btn-primary">Sign in</button>
 												</div>
 											</div>
- -->
 										</form>
 									</div>
 								</div>
@@ -111,8 +124,41 @@
 			});
 		});
 	</script>
+
+<script>
+    $(document).ready(function() {
+        $('#requestOTP').click(function() {
+            // Retrieve the email entered by the user
+            var email = $('#email').val(); 
+
+			var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+
+            // Send an AJAX request to the Laravel route
+            $.ajax({
+                url: '{{ route("otp.request") }}',
+                type: 'POST',
+                data: {
+                    email: email,
+					_token: csrfToken, 
+                },
+                success: function(response) {
+                    // Handle successful response (optional)
+                    alert(response.message); // Display a success message
+					$('#otpnumber').prop('disabled', false);
+                },
+                error: function(xhr, status, error) {
+                    // Handle error response (optional)
+                    var errorMessage = xhr.responseJSON.message;
+                    $('#otpError').text(errorMessage); // Display the error message
+                }
+            });
+        });
+    });
+</script>
 	<!--app JS-->
 	<script src="{{ asset('backend/assets/js/app.js')}}"></script>
 </body>
 
 </html>
+
